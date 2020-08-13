@@ -22,7 +22,7 @@ const replaceWithParams = (text, params) => {
   return result;
 };
 
-export const tf = (key, ...params) => {
+I18nJs.tf = (key, params) => {
   return replaceWithParams(I18nJs.t(key), params);
 };
 
