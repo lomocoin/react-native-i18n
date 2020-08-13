@@ -12,4 +12,18 @@ if (typeof RNI18n !== 'undefined') {
 }
 
 export const getLanguages = () => RNI18n.getLanguages();
+
+const replaceWithParams = (text, params) => {
+  let result = text;
+  params.forEach((value, index) => {
+    const reg = new RegExp(`({)${index}(})`, 'g');
+    result = result.replace(reg, value);
+  });
+  return result;
+};
+
+export const tf = (key, ...params) => {
+  return replaceWithParams(I18nJs.t(key), params);
+};
+
 export default I18nJs;
